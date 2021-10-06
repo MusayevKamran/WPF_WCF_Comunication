@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LineService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetHttpBinding_ILineService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60134/LineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60134/LineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60134/LineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WebSocket.Services.Contracts" />
+      <xsd:import schemaLocation="http://localhost:60134/LineService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILineService_SendLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendLine" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_SendLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_SubscribeForLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeForLine" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_SubscribeForLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeForLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_UnsubscribeForLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeForLine" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_UnsubscribeForLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeForLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_GetLinesId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinesId" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_GetLinesId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinesIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_GetSelectedLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectedLine" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_GetSelectedLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSelectedLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILineService_OnLineSend_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnLineSend" />
+  </wsdl:message>
+  <wsdl:portType name="ILineService">
+    <wsdl:operation name="SendLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILineService/SendLine" message="tns:ILineService_SendLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/SendLineResponse" message="tns:ILineService_SendLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeForLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILineService/SubscribeForLine" message="tns:ILineService_SubscribeForLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/SubscribeForLineResponse" message="tns:ILineService_SubscribeForLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeForLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILineService/UnsubscribeForLine" message="tns:ILineService_UnsubscribeForLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/UnsubscribeForLineResponse" message="tns:ILineService_UnsubscribeForLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinesId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILineService/GetLinesId" message="tns:ILineService_GetLinesId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/GetLinesIdResponse" message="tns:ILineService_GetLinesId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedLine">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILineService/GetSelectedLine" message="tns:ILineService_GetSelectedLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/GetSelectedLineResponse" message="tns:ILineService_GetSelectedLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnLineSend">
+      <wsdl:output wsaw:Action="http://tempuri.org/ILineService/OnLineSend" message="tns:ILineService_OnLineSend_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetHttpBinding_ILineService" type="tns:ILineService">
+    <wsp:PolicyReference URI="#NetHttpBinding_ILineService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/websocket" />
+    <wsdl:operation name="SendLine">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/SendLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeForLine">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/SubscribeForLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeForLine">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/UnsubscribeForLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinesId">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/GetLinesId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectedLine">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/GetSelectedLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnLineSend">
+      <soap12:operation soapAction="http://tempuri.org/ILineService/OnLineSend" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LineService">
+    <wsdl:port name="NetHttpBinding_ILineService" binding="tns:NetHttpBinding_ILineService">
+      <soap12:address location="ws://localhost:60134/LineService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>ws://localhost:60134/LineService.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
